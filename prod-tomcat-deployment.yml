@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: prod-server
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: prod-server
+    spec:
+      containers:
+      - name: prod-server
+        image: 3.16.108.69:8081/kierandocker/tomcat8:latest
+        ports:
+        - name: http-port
+          containerPort: 8080
